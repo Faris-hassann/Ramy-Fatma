@@ -25,27 +25,55 @@ export default function CeremonyCard({ t }: { t: Dict }) {
     <section className="relative px-[6%]">
       <Reveal>
         <div className="wine-card relative rounded-[14px] px-4 pb-12 pt-10 text-center">
-          <h2 className="font-heading text-[19px] font-bold tracking-[0.3px] text-cream">{t.ceremonyInfo}</h2>
+          {/* Parents / Family Information */}
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center justify-center gap-x-3 text-center">
+            {/* Groom's family */}
+            <div className="flex flex-col items-center">
+              <span className="font-uchen text-[11px] font-medium tracking-[1.4px] text-cream/70 uppercase">
+                {t.parentsTitle}
+              </span>
+              <span className="mt-1 font-heading text-[15px] font-semibold text-cream">
+                {t.groomFather}
+              </span>
+              <span className="mt-0.5 font-heading text-[15px] font-semibold text-cream">
+                {t.groomMother}
+              </span>
+            </div>
 
-          <div className="mt-6 space-y-1 px-2 font-body text-[12px] font-light leading-[1.5] text-cream">
-            {t.welcome.map((line, i) => (
-              <p key={i}>{line}</p>
-            ))}
+            {/* Vertical divider */}
+            <div className="h-14 w-px bg-cream/35" />
+
+            {/* Bride's family */}
+            <div className="flex flex-col items-center">
+              <span className="font-uchen text-[11px] font-medium tracking-[1.4px] text-cream/70 uppercase">
+                {t.parentsTitle}
+              </span>
+              <span className="mt-1 font-heading text-[15px] font-semibold text-cream">
+                {t.brideFather}
+              </span>
+              <span className="mt-0.5 font-heading text-[15px] font-semibold text-cream">
+                {t.brideMother}
+              </span>
+            </div>
           </div>
 
-          <p className="mt-10 font-display text-[40px] font-light leading-tight text-cream">{t.groom}</p>
-          <p className="mt-4 font-uchen text-[10px] font-light tracking-[1.4px] text-cream/70">{t.groomLabel}</p>
-          <p className="my-4 font-amp text-[35px] leading-none text-cream">&amp;</p>
-          <p className="mt-6 font-display text-[40px] font-light leading-tight text-cream">{t.bride}</p>
-          <p className="mt-4 font-uchen text-[10px] font-light tracking-[1.4px] text-cream/70">{t.brideLabel}</p>
-
-          <p className="mt-8 whitespace-pre-line font-body text-[16px] leading-[1.5] text-cream/70">
-            {t.ceremonyAt}
-            {"\n"}
-            {t.venueShort}
+          {/* Announcement text */}
+          <p className="mt-8 px-2 font-display text-[17px] leading-[1.6] text-cream">
+            {t.announcement}
           </p>
 
-          <DateBlock t={t} showAt />
+          {/* Couple names */}
+          <div className="mt-8">
+            <p className="font-display text-[38px] font-light leading-tight text-cream">{t.groom}</p>
+            <p className="mt-2 font-uchen text-[10px] font-light tracking-[1.4px] text-cream/70 uppercase">
+              {t.groomLabel}
+            </p>
+            <p className="my-3 font-amp text-[34px] leading-none text-cream">&amp;</p>
+            <p className="font-display text-[38px] font-light leading-tight text-cream">{t.bride}</p>
+            <p className="mt-2 font-uchen text-[10px] font-light tracking-[1.4px] text-cream/70 uppercase">
+              {t.brideLabel}
+            </p>
+          </div>
 
           <img
             src="/Images/flower2-decoration.webp"

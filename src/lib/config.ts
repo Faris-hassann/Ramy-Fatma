@@ -1,20 +1,17 @@
 // Central place for the event details. Edit here to change dates, venue, photos, etc.
 export const EVENT = {
-  // 7:00 PM Cairo time (Egypt is on UTC+3 summer time until the end of October 2026)
-  dateISO: "2026-10-23T19:00:00+03:00",
-  durationHours: 2,
+  // 7:00 PM Cairo time (Egypt is on UTC+2 winter time in November)
+  dateISO: "2026-11-27T19:00:00+02:00",
+  durationHours: 4,
   year: 2026,
-  month: 10, // October (1-12)
-  day: 23,
-  venueQuery: "Diva hall دار المدرعات",
-  dressColors: ["#D8C3A5", "#FFFFFF"],
+  month: 11, // November (1-12)
+  day: 27,
+  venueQuery: "Beau Jardin East طريق اسماععليه الصحراوي الشروق",
+  venueCoordinates: "30.1863125,31.6303125",
+  mapUrl: "https://maps.app.goo.gl/veJJdXhNd8zaiqjA6",
+  rsvpFormUrl: "https://forms.gle/ooPaV7Hp8M71914b7",
+  dressColors: ["#800020", "#FFFFFF"],
   heroPhoto: "/Images/hero.jpg",
-  gallery: [
-    "/Images/gallery-1.jpg",
-    "/Images/gallery-2.jpg",
-    "/Images/gallery-4.jpg",
-    "/Images/gallery-5.jpg",
-  ],
 };
 
 export const MUSIC = {

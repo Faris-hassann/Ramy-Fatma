@@ -6,7 +6,6 @@ import { dictionaries, type Locale } from "@/lib/i18n";
 import CeremonyCard from "./CeremonyCard";
 import Cover from "./Cover";
 import DressCode from "./DressCode";
-import Gallery from "./Gallery";
 import Guestbook from "./Guestbook";
 import Hero from "./Hero";
 import PartyCard from "./PartyCard";
@@ -52,12 +51,15 @@ export default function Invitation({ locale }: { locale: Locale }) {
           <>
             <Hero t={t} />
             <CeremonyCard t={t} />
-            <Gallery t={t} rtl={locale === "ar"} />
             <PartyCard t={t} locale={locale} />
             <Venue t={t} locale={locale} />
             <DressCode t={t} />
             <Guestbook t={t} locale={locale} />
-            <footer className="pb-24 pt-2" />
+            <footer className="relative z-10 px-8 pb-28 pt-10 text-center">
+              <p className="font-display text-[17px] italic leading-relaxed text-wine/85">
+                {t.thankYouNote}
+              </p>
+            </footer>
           </>
         )}
       </main>
