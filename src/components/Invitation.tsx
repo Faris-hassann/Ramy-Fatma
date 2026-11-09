@@ -10,20 +10,17 @@ import Guestbook from "./Guestbook";
 import Hero from "./Hero";
 import PartyCard from "./PartyCard";
 import Venue from "./Venue";
-import { useYouTubeMusic } from "./useYouTubeMusic";
 
 export default function Invitation({ locale }: { locale: Locale }) {
   const t = dictionaries[locale];
   const [opened, setOpened] = useState(false);
   const [coverGone, setCoverGone] = useState(false);
-  const music = useYouTubeMusic();
 
   useEffect(() => {
     document.body.style.overflow = coverGone ? "" : "hidden";
   }, [coverGone]);
 
   const handleOpen = () => {
-    music.play(); // must run inside the click so browsers allow audio
     setOpened(true);
     window.scrollTo(0, 0);
     setTimeout(() => setCoverGone(true), 1700);
@@ -31,13 +28,6 @@ export default function Invitation({ locale }: { locale: Locale }) {
 
   return (
     <>
-      {/* hidden YouTube player used for the background music */}
-      <div
-        ref={music.hostRef}
-        aria-hidden
-        className="pointer-events-none fixed -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0"
-      />
-
       <LanguageSwitch locale={locale} label={t.switchLang} dark={!coverGone} />
 
       {!coverGone && <Cover t={t} onOpen={handleOpen} />}
@@ -63,25 +53,6 @@ export default function Invitation({ locale }: { locale: Locale }) {
           </>
         )}
       </main>
-
-      {opened && (
-        <button
-          type="button"
-          onClick={music.toggle}
-          aria-label={music.playing ? t.music.pause : t.music.play}
-          className="fixed bottom-5 end-5 z-40 flex h-12 w-12 items-center justify-center rounded-full border-2 border-white/25 bg-[radial-gradient(circle_at_35%_30%,#7a1822,#4a0d13)] shadow-[0_8px_20px_rgba(81,20,25,0.45)] transition-transform hover:scale-105 active:scale-95"
-        >
-          <span className="flex h-5 items-end gap-[3px]" dir="ltr">
-            {[0, 0.25, 0.5, 0.15].map((d, i) => (
-              <span
-                key={i}
-                className={`w-[4px] rounded-full bg-white ${music.playing ? "eq-bar" : ""}`}
-                style={{ height: `${[40, 70, 100, 55][i]}%`, animationDelay: `${d}s` }}
-              />
-            ))}
-          </span>
-        </button>
-      )}
     </>
   );
 }

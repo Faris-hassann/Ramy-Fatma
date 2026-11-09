@@ -85,7 +85,7 @@ export default function PartyCard({ t, locale }: { t: Dict; locale: Locale }) {
   const num = (n: number) => n.toLocaleString(locale === "ar" ? "ar-EG" : "en-US");
 
   return (
-    <section className="relative px-[6%] pb-6">
+    <section className="relative mt-10 px-[6%] pb-6">
       <Reveal>
         <div className="wine-card relative rounded-[14px] px-5 pb-10 pt-10 text-center">
           <h2 className="font-heading text-[20px] font-bold tracking-[0.48px] text-cream">{t.partyInfo}</h2>

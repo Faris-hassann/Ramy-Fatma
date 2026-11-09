@@ -29,7 +29,7 @@ export default function Venue({ t, locale }: { t: Dict; locale: Locale }) {
           href={EVENT.mapUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center gap-2 rounded-full px-5 py-2 font-body text-sm font-semibold text-wine/80 transition-transform hover:scale-[1.03]"
+          className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-wine px-8 py-2.5 font-heading text-sm font-semibold tracking-wide text-cream shadow-[0_6px_16px_rgba(81,20,25,0.35)] transition-transform hover:scale-[1.03] active:scale-95"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4 rtl:-scale-x-100" fill="none" stroke="currentColor" strokeWidth={1.8}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.27 3.13A59.8 59.8 0 0121.49 12 59.8 59.8 0 013.27 20.88L6 12zm0 0h7.5" />
